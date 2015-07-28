@@ -19,7 +19,7 @@ li{
 	background-color: #025E75;
 
 }
-.field, .top-space, .actions{
+.field, .top-space, .actions, .btn{
 margin-top: 1em;
 text-align: left;
 }
@@ -46,25 +46,32 @@ a,a:visited{
 .form-control{
 	width: 100%;
 	height: 25px;
-	margin: 0px;
 	font-family: 'Roboto', sans-serif;
 	font-size: 18px;
 	border-radius: 3px;
 	border: 1px solid #9FCBD3;
-	transition: background .2s linear;
+	padding: 12px 0px;
+}
+textarea{
+
 }
 .btn{
+	width: 100%;
 	background-color: #F24C27;
 	color: #FFFFFA;
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.2em;
-	width: 100%;
-	margin: 0px;
 	border: none;
 	outline: none;
 	text-transform:  uppercase;
 	cursor: pointer;
-	padding: 10px 12px;
-	border-radius: 4px;
+	padding: 12px 0px;
+	border-radius: 3px;
 
+}
+.comment{
+	font-family: 'Roboto', sans-serif;
+	text-transform:  capitalize;
+	color: #505050;
+	font-size: medium;
 }

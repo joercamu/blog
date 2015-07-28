@@ -1,4 +1,8 @@
-<%= form_for([@article, @comment]) do |f| %>
+<%= form_for(
+  [@article, @comment], 
+  remote: true,
+  html: { :'id' => "comments-form", :'data-type' => 'json'}
+ ) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -13,9 +17,9 @@
 
   <div class="field">
     
-    <%= f.text_area :body, placeholder:"Insertar un comentario" %>
+    <%= f.text_area :body, placeholder:"Insertar un comentario", class:"form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn" %>
   </div>
 <% end %>

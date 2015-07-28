@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
 	#GET /articles
 	def index
 		#todos los registros de articles
-		@articles = Article.all
+		@articles = Article.all.order(id: :desc)
 	end
 
 	#GET /articles/:id

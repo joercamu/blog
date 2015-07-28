@@ -6,6 +6,7 @@ gem 'rails', '4.1.8'
 
 gem 'pg', '~> 0.18.2'
 gem 'rails_12factor', group: :production
+gem 'jquery-turbolinks'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
