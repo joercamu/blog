@@ -7,9 +7,18 @@
 			<% end %>
 			
 			<div>
-				<%= @article.body %>
+				<p><%= @article.body.html_safe %></p>
 			<br>
 				<%= link_to "Editar", edit_article_path(@article) %>
+			</div>
+			<div class="field">
+				<h3>Comentarios...</h3>
+				<%= render 'comments/form' %>
+				<ul>
+					<% @article.comments.each do |comment| %>
+					<li><%= comment.body %> - <%= comment.user.email%></li>
+					<%end%>
+				</ul>
 			</div>
 		</div>
 	</div>

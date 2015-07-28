@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 	#callback ->antes de realizar cualquier accion vaya a :validate_user exepto :show e :index
-	before_action :validate_user, except: [:show,:index]
+	before_action :authenticate_user!, except: [:show,:index]
+	before_action :set_article, only: [:show, :edit, :update, :destroy]
 	#GET /articles
 	def index
 		#todos los registros de articles
@@ -9,8 +10,7 @@ class ArticlesController < ApplicationController
 
 	#GET /articles/:id
 	def show
-		#encuetra un articulo por su id
-		@article = Article.find(params[:id])
+		@comment = Comment.new
 	end
 
 	#GET /articles/new
@@ -20,7 +20,6 @@ class ArticlesController < ApplicationController
 
 	# Get /aticles/:id/edit
 	def edit
-		@article = Article.find(params[:id])
 	end
 
 	#POST /articule
@@ -28,7 +27,7 @@ class ArticlesController < ApplicationController
 		#@article = Article.new(title: params[:article][:title],body: params[:article][:body])
 		@article = current_user.articles.new(article_params)#pasar todo el arreglo
 		if @article.save
-			redirect_to @article
+			redirect_to @article, notice: 'Article was successfully created.'
 		else
 			render :new
 		end	
@@ -36,8 +35,6 @@ class ArticlesController < ApplicationController
 
 	# PUT articles/:id
 	def update
-		#@article.update_attributes({title: "Nuevo titulo"})
-		@article = Article.find(params[:id])
 		if @article.update(article_params)
 			redirect_to @article
 		else
@@ -47,12 +44,15 @@ class ArticlesController < ApplicationController
 
 	# delete articles/:id
 	def destroy
-		@article = Article.find(params[:id])
 		@article.destroy #Eliminar el elemento en la base de datos
 		redirect_to articles_path
 	end
 
 	private
+
+	def set_article
+		@article = Article.find(params[:id])
+	end
 
 	def validate_user
 		redirect_to new_user_session_path, notice: "Necesitas iniciar sesion"

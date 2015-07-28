@@ -1,10 +1,11 @@
 <div class="row">
 	<div class="col-xs-6">
 		<div class="article">
+			<%= link_to "Nuevo Articulo", new_article_path, class: "btn" %>
 			<% @articles.each do |article| %>
 				<h1><%= link_to article.title , article %></h1>
 				<div>
-					<%= article.body %> - <%= link_to "Eliminar", article, class: "red" ,method: :delete %>
+					<%= article.body.html_safe %> - <%= link_to "Eliminar", article, class: "red" ,method: :delete %>
 				</div>
 			<%end%>
 		</div>
