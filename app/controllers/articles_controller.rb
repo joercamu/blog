@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
 	#callback ->antes de realizar cualquier accion vaya a :validate_user exepto :show e :index
 	before_action :authenticate_user!, except: [:show,:index]
 	before_action :set_article, only: [:show, :edit, :update, :destroy]
+
 	#GET /articles
 	def index
 		#todos los registros de articles
