@@ -67,11 +67,17 @@ textarea{
 	cursor: pointer;
 	padding: 12px 0px;
 	border-radius: 3px;
-
+	text-align: center;
 }
 .comment{
 	font-family: 'Roboto', sans-serif;
 	text-transform:  capitalize;
 	color: #505050;
 	font-size: medium;
+	margin-top: 1em;
+	border: 1px solid #EDEDED;
+	background-color: #F7F7F7;
+	padding: 5px 8px;
+	border-radius: 5px;
+	
 }
